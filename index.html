@@ -750,6 +750,25 @@
   <script src="assets/js/topbar-virtual.js"></script>
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
-  
+
+  <!-- imagesLoaded (waits for images before layout) -->
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+<!-- Isotope layout engine -->
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script>
+  $(window).on('load', function () {
+    var $grid = $('.gridder');
+
+    $grid.imagesLoaded(function () {
+      $grid.isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows' // Or use 'masonry' if needed
+      });
+
+      $grid.addClass('loaded'); // Optional: for visual fade-in
+    });
+  });
+</script>
 </body>
 </html>
